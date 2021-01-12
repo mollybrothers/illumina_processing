@@ -1,3 +1,11 @@
+#!/bin/python3
+
+###########################
+# Name: Molly Brothers
+# Github: mollybrothers
+# Date: 01/12/2021
+###########################
+
 #You provide the size range that you want to align in the argument
 #Example call: bash /home/mbrothers/code/mbedgraphs_parallel.sh ~/path/to/sam_files 120 180
 

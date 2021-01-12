@@ -1,3 +1,11 @@
+#!/bin/bash
+
+########################
+# Author: Molly Brothers
+# Github: mollybrothers
+# Date: 01/12/2021
+#########################
+
 #Assumes that fastq files are all in the same folder and all end with ".fastq.gz"
 
 #Assumes fastq file names are in format LibraryName_SampleName_..., where SampleName includes no underscores

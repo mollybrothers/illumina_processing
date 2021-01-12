@@ -1,3 +1,11 @@
+#!/bin/bash
+
+###########################
+# Author: Molly Brothers
+# Github: mollybrothers
+# Date: 01/12/2021
+###########################
+
 #converts sam files to bam files for all sam files in a folder
 
 #Assumes that sam files are all in the same folder and all end with ".sam"

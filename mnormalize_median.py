@@ -1,3 +1,11 @@
+#!/bin/python3
+
+##########################
+# Author: Molly Brothers
+# Github: mollybrothers
+# Date: 01/12/2021
+##########################
+
 import sys
 import os
 import string

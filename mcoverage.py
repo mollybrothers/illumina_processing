@@ -1,3 +1,11 @@
+#!/bin/python3
+
+###########################
+# Author: Molly Brothers
+# Github: mollybrothers
+# Date: 01/12/2021
+###########################
+
 #This program is used to generate a .bedgraph file of genomic coordinates with the number of times a base is covered in the 4th column
 #The input .sam file and output .bedgraph file are provided as command-line arguments
 #The program assumes that the only mapping locations are yeast chromosomes, labeled "I", "II", ..., "XIV", "MT"

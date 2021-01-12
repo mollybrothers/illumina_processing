@@ -1,3 +1,11 @@
+#!/bin/bash
+
+#############################
+# Author: Molly Brothers
+# Github: mollybrothers
+# Date: 01/12/2021
+#############################
+
 #converts all bedgraph files in a directory into tdf files viewable by IGV
 #Assumes that all begdraph files are in the same folder and all end with ".bedgraph"
 
