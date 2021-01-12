@@ -18,5 +18,5 @@ genome="$2"
 for file in *.bedgraph
 do
         output=${file%.bedgraph}.tdf
-        bash /home/mbrothers/IGVTools_2.4.19/igvtools toTDF "$file" "$output" "$genome"
+        bash /global/groups/fc_nanosir/IGVTools_2.4.19/igvtools toTDF "$file" "$output" "$genome"
 done
