@@ -39,7 +39,7 @@ ls $data_directory/sam_files/*.sam | parallel -u -I{} python $code_directory/mco
 
 ##step 4: move begraph files into their own directory in a parent of fastq_files directory
 mkdir $data_directory/bedGraph_files
-mv $data_directory/sam_files/*bedGraph ../bedGraph_files
+mv $data_directory/sam_files/*bedGraph $data_directory/bedGraph_files
 
 ##step 5: normalize bedgraph files to genome-wide median
 ls $data_directory/bedGraph_files/*.bedGraph | parallel -u -I{} python $code_directory/mnormalize_median.py {}
