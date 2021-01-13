@@ -11,12 +11,12 @@
 
 #Change directory to that provided as argument
 
-cd "$1"
-genome="$2"
+cd "$2"
+genome="$3"
 
 #Iterates through all bedgraph files in folder
 for file in *.bedgraph
 do
         output=${file%.bedgraph}.tdf
-        bash /global/groups/fc_nanosir/IGVTools_2.4.19/igvtools toTDF "$file" "$output" "$genome"
+        bash $1/igvtools toTDF "$file" "$output" "$genome"
 done

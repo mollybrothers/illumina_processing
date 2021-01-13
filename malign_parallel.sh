@@ -17,7 +17,7 @@ cd "$1"
 
 #Change alignment options here
 genome="$2" #genome file to align to
-threads="16" #number of processors to use
+threads="$3" #number of processors to use
 options="--local --soft-clipped-unmapped-tlen --no-unal --no-mixed --no-discordant" #include any extra bowtie2 arguments here
 stats_file="alignment_stats.txt"
 
