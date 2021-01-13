@@ -17,7 +17,7 @@ module load samtools
 module load bowtie2
 module load java
 
-code_directory= "/global/users/molly_brothers/illumina_processing" #directory containing the scripts below
+code_directory= "/global/home/users/molly_brothers/illumina_processing" #directory containing the scripts below
 fastq_directory= "/global/scratch/molly_brothers/illumina/210111_Resolution" #directory containing fastq files
 genome= "/global/scratch/molly_brothers/genomes/genome_mat_to_N" #file with genome to align to, no file extension
 fragment_size_min=100 #minimum fragment size to consider
