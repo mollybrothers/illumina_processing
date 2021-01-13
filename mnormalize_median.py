@@ -33,7 +33,7 @@ def get_median(file_in_string):
                 if not(chrom == "III") and not(chrom == "MT") and base > 20000 and base < chromosome_lengths[chrom]-20000:
                         list_of_coverages.append(coverage)
         list_of_coverages.sort()
-        median =list_of_coverages[len(list_of_coverages)/2]
+        median = list_of_coverages[int(len(list_of_coverages)/2)]
         return median
 
 def write_norm(file_in_string, file_out_string, median):
@@ -58,4 +58,4 @@ for i in range(1,len(sys.argv)):
 	file_out_string = sys.argv[i].split(".bedgraph")[0] + "_median_normalized.bedgraph"
 	median = get_median(file_in_string)
 	write_norm(file_in_string, file_out_string, median)
-	print sys.argv[i] + " done"
+	print (sys.argv[i] + " done")

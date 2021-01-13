@@ -1,29 +1,31 @@
-#/bin/bash
+#!/bin/bash
 
-#SBATCH --job_name=ChIP-process
+#SBATCH --job-name=ChIP-process
 #SBATCH --account=fc_nanosir
 #SBATCH --partition=savio
-#SBATCH --output=ChIP-process.out
-#SBATCH --error=ChIP-process.err
+#SBATCH --output=ChIP5-process.out
+#SBATCH --error=ChIP5-process.err
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=molly_brothers@berkeley.edu
 #SBATCH --time=10:00:00
 
 ##running this program requires that a directory containing your fastq files is the
 ##daughter of a directory you want all your other files to end up in
+##at the end, you'll have a normalized bedGraph file. I can't get igvtools to work on Savio, so you'll
+##have to convert to tdf files on your own computer for now.
+
 
 ##load required software
 module load samtools
 module load bowtie2
-module load java
+module load gnu-parallel
 
 code_directory="/global/home/users/molly_brothers/illumina_processing"
-fastq_directory="/global/scratch/molly_brothers/illumina/210111_Resolution"
+fastq_directory="/global/scratch/molly_brothers/illumina/210111_Resolution/fastq_files"
 genome="/global/scratch/molly_brothers/genomes/genome_mat_to_N"
 fragment_size_min=100
 fragment_size_max=1000
 threads=$SLURM_CPUS_ON_NODE
-igv_directory="/global/home/users/molly_brothers/IGV_2.8.13"
 
 cd $fastq_directory
 
@@ -36,14 +38,11 @@ mv $fastq_directory/*sam ../sam_files
 
 ##step 3: convert sam files into bedgraph files
 ##Input directs the shell to directory containing bam files
-bash $code_directory/mcoverage_parallel.sh $code_directory ../sam_files $fragment_size_min $fragment_size_max
+ls $fastq_directory/sam_files/*.sam | parallel -u -I{} python $code_directory/mcoverage.py {} {.}.bedGraph $fragment_size_min $fragment_size_max
 
 ##step 4: move begraph files into their own directory in a parent of fastq_files directory
-mkdir ../bedgraph_files
-mv ../sam_files/*bedgraph ../bedgraph_files
+mkdir ../bedGraph_files
+mv ../sam_files/*bedGraph ../bedGraph_files
 
 ##step 5: normalize bedgraph files to genome-wide median
-bash $code_directory/mnormalize_parallel.sh $code_directory ../bedgraph_files
-
-##step 6: convert bedgraph to tdf using igvtools toTDF. This file is now readable by IGV genome browser.
-bash $code_directory/mtoTDF_parallel.sh $igv_directory ../bedgraph_files "$genome".genome
+ls $fastq_directory/bedGraph_files/*.bedGraph | parallel -u -I{} python $code_directory/mnormalize_median.py {}
