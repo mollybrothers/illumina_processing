@@ -55,7 +55,7 @@ def write_norm(file_in_string, file_out_string, median):
 #creates a list between 1 and the number of files
 for i in range(1,len(sys.argv)):
 	file_in_string = sys.argv[i]
-	file_out_string = sys.argv[i].split(".bedgraph")[0] + "_median_normalized.bedgraph"
+	file_out_string = sys.argv[i].split(".bedGraph")[0] + "_median_normalized.bedGraph"
 	median = get_median(file_in_string)
 	write_norm(file_in_string, file_out_string, median)
 	print (sys.argv[i] + " done")
