@@ -20,5 +20,5 @@ IGV="~/sequencing/IGV_2.8.13"
 for file in *.bedGraph
 do
         output=${file%.bedgraph}.tdf
-        bash $1/igvtools toTDF "$file" "$output" "$genome"
+        bash $IGV/igvtools toTDF "$file" "$output" "$genome"
 done
