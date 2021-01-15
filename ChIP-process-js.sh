@@ -20,7 +20,7 @@ module load bowtie2
 module load gnu-parallel
 
 code_directory="/global/home/users/molly_brothers/illumina_processing"
-data_directory="/global/scratch/molly_brothers/illumina/210111_Resolution"
+data_directory="/global/scratch/molly_brothers/illumina/210114_Birthday"
 genome="/global/scratch/molly_brothers/genomes/genome_mat_to_N"
 fragment_size_min=100
 fragment_size_max=1000
