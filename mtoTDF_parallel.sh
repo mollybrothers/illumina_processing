@@ -3,7 +3,7 @@
 #############################
 # Author: Molly Brothers
 # Github: mollybrothers
-# Date: 01/12/2021
+# Date: 01/15/2021
 #############################
 
 #converts all bedgraph files in a directory into tdf files viewable by IGV
@@ -11,11 +11,13 @@
 
 #Change directory to that provided as argument
 
-cd "$2"
-genome="$3"
+
+cd "$1"
+genome="$2"
+IGV="~/sequencing/IGV_2.8.13"
 
 #Iterates through all bedgraph files in folder
-for file in *.bedgraph
+for file in *.bedGraph
 do
         output=${file%.bedgraph}.tdf
         bash $1/igvtools toTDF "$file" "$output" "$genome"
