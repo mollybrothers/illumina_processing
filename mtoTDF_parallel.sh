@@ -19,6 +19,6 @@ IGV="/Users/mollybrothers/sequencing/IGV_2.8.13"
 #Iterates through all bedgraph files in folder
 for file in *.bedGraph
 do
-        output=${file%.bedgraph}.tdf
+        output=${file%.bedGraph}.tdf
         bash $IGV/igvtools toTDF "$file" "$output" "$genome"
 done
