@@ -14,7 +14,7 @@
 
 cd "$1"
 genome="$2"
-IGV="~/sequencing/IGV_2.8.13"
+IGV="/Users/mollybrothers/sequencing/IGV_2.8.13"
 
 #Iterates through all bedgraph files in folder
 for file in *.bedGraph
