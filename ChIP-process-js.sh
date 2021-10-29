@@ -2,12 +2,12 @@
 
 #SBATCH --job-name=ChIP-process
 #SBATCH --account=fc_nanosir
-#SBATCH --partition=savio
-#SBATCH --output=ChIP-process.out
-#SBATCH --error=ChIP-process.err
+#SBATCH --partition=savio2
+#SBATCH --output=ChIP-process-lexO.out
+#SBATCH --error=ChIP-process-lexO.err
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=molly_brothers@berkeley.edu
-#SBATCH --time=10:00:00
+#SBATCH --time=05:00:00
 
 ##running this program requires that a your fastq.gz files are in a directory called "fastq_files" in your specified "data_directory" directory below
 ##at the end, you'll have a normalized bedGraph file. I can't get igvtools to work on Savio, so you'll
@@ -20,8 +20,8 @@ module load bowtie2
 module load gnu-parallel
 
 code_directory="/global/home/users/molly_brothers/illumina_processing"
-data_directory="/global/scratch/molly_brothers/illumina/210122_Crabby"
-genome="/global/scratch/molly_brothers/genomes/genome_mat_to_N"
+data_directory="/global/scratch/users/molly_brothers/illumina/211025_Pricklypear/lexO"
+genome="/global/scratch/users/molly_brothers/genomes/genome_matD-lexO-HML"
 fragment_size_min=100
 fragment_size_max=1000
 threads=$SLURM_CPUS_ON_NODE
